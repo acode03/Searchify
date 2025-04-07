@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Our Dataset - Searchify</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/datasetStyle.css') }}">
+</head>
+<body>
+
+    <div class="home-root-container">
+
+        <div class="home-left-container styled-container">
+            <h2>Our Dataset</h2>
+            <p>Our data is sourced from the Spotify Music Dataset on kaggle.com</p>
+            <p>A link to this source can be found <a href='https://www.kaggle.com/datasets/solomonameh/spotify-music-dataset/code'>here.</a></p>
+        </div>
+
+        <div class="home-right-container">
+            <div class="nav-separation-bar"></div>
+                <nav>
+                    <ul>
+                        <li><a href="{{ url_for('index') }}" class="{% if request.path == url_for('index') %}active{% endif %}">Home</a></li>
+                        <li><a href="{{ url_for('show_categories') }}" class="{% if request.path == url_for('show_categories') %}active{% endif %}">View Categories</a></li>
+                        <li><a href="{{ url_for('show_dataset') }}" class="{% if request.path == url_for('show_dataset') %}active{% endif %}">About Our Database</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <a href="{{ url_for('show_searchPage') }}" id="get-started-button">Get Started</a>
+    
+</body>
+</html>

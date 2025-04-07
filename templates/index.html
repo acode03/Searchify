@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Searchify</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/IndexStyle.css') }}">
+</head>
+<body>
+    <div id="home-root-container">
+
+        <!-- Left Container -->
+        <div id="home-left-container">
+            <div id="welcome-text">Welcome To</div>
+            <div class="center-aligned-container">
+                <div id="vinyl-container"><img src="{{ url_for('static', filename='images/vinyl.png') }}" alt="Vinyl Record" id="vinyl"></div>
+                <div id="search-text-container">
+                    <h3 id="search-text">Search</h3>
+                </div>
+            </div>
+            <a href="{{ url_for('show_searchPage') }}" id="get-started-button">Get Started</a>
+        </div>
+        
+        <!-- Middle container -->
+        <div id="home-mid-container" class="center-aligned-container">
+            <h3 id="ify-text">ify</h3>
+        </div>
+
+        <!-- Right Container -->
+        <div id="home-right-container">
+            <div id="nav-separation-bar"></div>
+            <nav>
+                <ul>
+                    <li><a href="{{ url_for('index') }}" class="{% if request.path == url_for('index') %}active{% endif %}">Home</a></li>
+                    <li><a href="{{ url_for('show_categories') }}" class="{% if request.path == url_for('show_categories') %}active{% endif %}">View Categories</a></li>
+                    <li><a href="{{ url_for('show_dataset') }}" class="{% if request.path == url_for('show_dataset') %}active{% endif %}">About Our Database</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+
+    
+</body>
+</html>

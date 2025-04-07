@@ -1,0 +1,184 @@
+/*
+Multiple of 4 rule for consistent spacing and alignment
+
+
+ */
+
+
+ body {
+    margin-left: 5%;
+    margin-right: 5%;
+    font-family: 'Verdana', Geneva, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+/*
+ * Styles the banner (h1) at the top of each page
+ * Dark background with white text for contrast
+ */
+h1 {
+    padding: 24px;
+    background-color: #2c3e50;
+    color: white;
+    text-align: center;
+    margin: 0;
+    font-size: 2em;
+}
+
+/*
+ * Navigation bar styling for the unordered list (ul)
+ * Border for visual separation
+ * Bkg Color for contrast to the body
+ */
+nav ul {
+    border: 2px solid #3498db;
+    list-style-type: none;
+    overflow: hidden;
+    background-color: #ecf0f1;
+    margin: 0;
+    padding: 0;
+}
+
+/*
+ * Ensures nav items float left to align horizontally
+ */
+nav li {
+    float: left;
+}
+
+/*
+ * Styles the links (a) within the nav bar
+ * Hover effect for feedback on clickable items
+ */
+nav li a {
+    display: block;
+    color: #2980b9;
+    text-decoration: none;
+    text-align: center;
+    padding: 12px 16px;
+    font-weight: bold;
+}
+
+nav li a:hover {
+    color: white;
+    background-color: #3498db;
+}
+
+/*
+ * Main content area styling
+ * Give padding to everything! 
+ */
+.content {
+    padding: 16px;
+}
+
+/*
+ * H2 Title styling
+ * Maintain consistent color with banner 
+ */
+h2 {
+    color: #2c3e50;
+    font-size: 1.8em;
+}
+
+h3{
+    color: #4a697d
+}
+
+/*
+ * Paragraph styling for readability
+ */
+p {
+    line-height: 1.6;
+    margin-bottom: 16px;
+}
+
+/*
+ * Form styling for genre selection
+ */
+form {
+    margin: 16px 0;
+}
+
+/*
+ * Label styling for the form
+ */
+label {
+    font-weight: bold;
+    margin-right: 8px;
+}
+
+/*
+ * Dropdown (select) styling
+ */
+select {
+    padding: 8px;
+    font-size: 1em;
+    border: 1px solid #3498db;
+    border-radius: 4px;
+}
+
+/*
+ * Button styling for form submission.
+ * Hover effect for feedback
+ */
+button {
+    padding: 8px 16px;
+    background-color: #2980b9;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #3498db;
+}
+
+/*
+ * Highlight div styling for displaying songs, artists, or genres
+ * Dropshadow for visual separation
+ */
+.highlight {
+    background-color: #ecf0f1;
+    width: 350px;
+    border: 2px solid #3498db;
+    float: left;
+    padding: 16px;
+    margin: 8px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/*
+ * H3 styling inside the highlight div
+ * Removes top margin to align with div padding
+ */
+.highlight h3 {
+    color: #2c3e50;
+    margin-top: 0;
+}
+
+/*
+ * Unordered list styling inside the highlight div
+ */
+.highlight ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+/*
+ * List item styling inside the highlight div
+ */
+.highlight li {
+    margin: 8px 0;
+    line-height: 1.4;
+}
+
+/*
+ * Strong tag styling inside the highlight div
+ */
+.highlight strong {
+    color: #2980b9;
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Categories - Searchify </title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/categoriesStyle.css') }}">
+</head>
+
+<body>
+
+    <div class="home-root-container">
+
+        <div class="home-left-container styled-container">
+            <h2>Dataset Categories</h2>
+            <p>Below are the variables that can be used to filter through our dataset, along with a brief description of
+                each.</p>
+            <div class="highlight">
+                <ul>
+                    <p><strong>Tempo</strong> - Measures the speed of a track in beats per minute.</p>
+                    <p><strong>Danceability</strong> - A ranking of how fit a song is for dancing, using metrics such as tempo, rhythm
+                        stability, and beat strength.</p>
+                    <p><strong>Valence</strong> - The overall emotion of a song. High valence represents happy songs, while low valence song
+                        tend to sound sad.</p>
+                    <p><strong>Duration</strong> - Length of a song in milliseconds.</p>
+                    <p><strong>Energy</strong> - A measure of the activity and intensity of a song.</p>
+                    <p><strong>Loudness</strong> - The overall volume of a song in decibels.</p>
+                    <p><strong>Liveness</strong> - Likeliness of a song being performed live, as measured by audience presence.</p>
+                    <p><strong>Artist</strong> - Name of the person who released the song.</p>
+                    <p><strong>Time Signature</strong> - The total duration of the all of the notes in the bar.</p>
+                    <p><strong>Speechiness</strong> - Represents the frequency of spoken words.</p>
+                    <p><strong>Track Album Name</strong> - Name of the album in which the song is featured.</p>
+                    <p><strong>Track Name</strong> - Name of the song.</p>
+                    <p><strong>Release Date</strong> - Date of release of a song.</p>
+                    <p><strong>Instrumentalness</strong> - A measure of the how much a song relies on instrumentation. A score of 1
+                        represents a song with no vocals.</p>
+                    <p><strong>Key</strong> - The musical key of a song, scored 0 to 11, mirroring standard pitch class notation.</p>
+                    <p><strong>Acousticness</strong> - A ranking of how acoustic a song is(0-1). Values closer to 1 are more acoustic.</p>
+                </ul>
+            </div>
+        </div>
+
+        <div class="home-right-container">
+            <div class="nav-separation-bar"></div>
+                <nav>
+                    <ul>
+                        <li><a href="{{ url_for('index') }}" class="{% if request.path == url_for('index') %}active{% endif %}">Home</a></li>
+                        <li><a href="{{ url_for('show_categories') }}" class="{% if request.path == url_for('show_categories') %}active{% endif %}">View Categories</a></li>
+                        <li><a href="{{ url_for('show_dataset') }}" class="{% if request.path == url_for('show_dataset') %}active{% endif %}">About Our Database</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <a href="{{ url_for('show_searchPage') }}" id="get-started-button">Get Started</a>
+    
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Searchify Prototype</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/newStyle.css') }}">
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const form = document.querySelector(".search-form");
+
+            // Check if the form was submitted
+            if (localStorage.getItem("formSubmitted") === "true") {
+                window.scrollTo({
+                    top: document.body.scrollHeight,
+                    behavior: 'smooth'
+                });
+                localStorage.removeItem("formSubmitted");
+            }
+
+            form.addEventListener("submit", function() {
+                localStorage.setItem("formSubmitted", "true");
+            });
+        });
+    </script>
+</head>
+
+<body>
+
+    <div class="home-root-container">
+    <!-- Main Content -->
+    <div class="home-left-container styled-container">
+        <h2>Welcome to Searchify! Explore the statistics behind popular music.</h2>
+        <h3>Discover Songs by Category</h3>
+        <p>Select a category, whether you want to see high to low, low to high, and how many results you would like to see.</p>
+
+        <form action="{{ url_for('show_searchPage') }}" method="POST" class="search-form">
+            <label for="category" class="form-label">Choose a variable to sort by:</label>
+
+            <select name="category" id="category" class="form-select">
+                <option value="tempo">Tempo</option>
+                <option value="danceability">Danceability</option>
+                <option value="valence">Valence</option>
+                <option value="duration_ms">Duration</option>
+                <option value="energy">Energy</option>
+                <option value="loudness">Loudness</option>
+                <option value="liveness">Liveness</option>
+                <option value="time_signature">Time Signature</option>
+                <option value="speechiness">Speechiness</option>
+                <option value="track_album_name">Track Album Name</option>
+                <option value="track_name">Track Name</option>
+                <option value="track_album_release_date">Release Date</option>
+                <option value="instrumentalness">Instrumentalness</option>
+                <option value="track_key">Key</option>
+                <option value="acousticness">Acousticness</option>
+            </select>
+
+            <label for="sortOrder" class="form-label">Sort by:</label>
+            <select name="sortOrder" id="sortOrder" class="form-select">
+                <option value="high-low">High-Low</option>
+                <option value="low-high">Low-High</option>
+            </select>
+
+            <label for="numResults" class="form-label">How many results would you like to see?</label>
+            <input type="text" id="numResults" name="numResults" class="form-input">
+
+            <button type="submit" class="form-button">Submit</button>
+        </form>
+
+        {% if searchResults %}
+        {% if searchResults == "invalid number" %}
+        <p class="error">Error: Please enter a valid number.</p>
+        {% else %}
+        <h2>Results for {{chosenCategory}}, {{chosenOrder}}:</h2>
+        <ol>
+            {% for song in searchResults %}
+            <li>{{ song[0] }} by {{ song[1] }} ({{ song[2] }})</li>
+            {% endfor %}
+        </ol>
+        {% endif %}
+        {% endif %}
+
+    </div>
+
+    <div class="home-right-container">
+        <div class="nav-separation-bar"></div>
+            <nav>
+                <ul>
+                    <li><a href="{{ url_for('index') }}" class="{% if request.path == url_for('index') %}active{% endif %}">Home</a></li>
+                    <li><a href="{{ url_for('show_categories') }}" class="{% if request.path == url_for('show_categories') %}active{% endif %}">View Categories</a></li>
+                    <li><a href="{{ url_for('show_dataset') }}" class="{% if request.path == url_for('show_dataset') %}active{% endif %}">About Our Database</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

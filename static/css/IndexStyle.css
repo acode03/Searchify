@@ -1,0 +1,248 @@
+/* Reset defaults and set background */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden; /* Corrected from 'None' to 'hidden' */
+    background-color: #E5DFDA;
+}
+
+/* Use ID selector for home-root-container (not class) */
+#home-root-container {
+    display: flex; /* Enables flexbox layout for side-by-side divs */
+    width: 100%; /* Full width of the viewport */
+    height: 100vh; /* Full viewport height */
+    justify-content: flex-start;
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Style home-left-container to size to its content and take available space */
+#home-left-container {
+    display: flex; /* Maintains flex for centering vinyl and text */
+    position: relative; /* For absolute positioning of children */
+    width: auto; /* Sizes to content, but flex will override if needed */
+    height: 100vh; /* Full height of the viewport */
+    animation: slideInFromLeft 1.2s ease-in-out;
+}
+
+/* Center-aligned container for vinyl and search text */
+.center-aligned-container {
+    display: flex;
+    position: relative;
+    align-items: center; /* Vertically centers children */
+    justify-content: center; /* Horizontally centers children if needed */
+}
+
+/* Vinyl container sizes to its content (the image) */
+#vinyl-container {
+    height: max-content; /* Matches the height of the image */
+    width: max-content; /* Matches the width of the image */
+}
+
+#get-started-button {
+    font-family: 'Inter', sans-serif;
+    font-size: 3vh;
+    font-weight: 700;
+
+    z-index: 4;
+    position: absolute;
+    background-color: #FF4E4E;
+    color: white;
+    padding: 2vh 3vh;
+    text-decoration: none;
+    border-radius: 40px;
+
+    top: 58vh;
+    right: 3vh;
+
+    transition: background-color 0.3s ease;
+    animation: fadeIn 2s ease-in-out;
+}
+
+#get-started-button:hover {
+    text-decoration: underline;
+}
+
+/* Style the vinyl image */
+#vinyl {
+    position: relative; /* Keep in normal flow for container sizing */
+    top: 0%; /* Reset top positioning */
+    height: 140vh; /* Large height, adjust as needed */
+    width: auto; /* Maintains aspect ratio */
+    transform-origin: left center;
+    transform: scale(1); /* No scaling unless needed */
+    z-index: 1; /* Keeps it layered below search text */
+}
+
+/* Position and style the search text */
+#search-text-container {
+    display: inline-block;
+    background-color: transparent; /* Corrected from 'None' to 'transparent' */
+    position: absolute; /* Position relative to home-left-container */
+    right: 0.5em; /* Position slightly to the right */
+    width: max-content; /* Sizes to content */
+    height: max-content; /* Sizes to content */
+    z-index: 3; /* Above vinyl */
+}
+
+/* "search"  part of the searchify title text */
+#search-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 13vh; /* Large text, adjust as needed */
+    color: #ffffff;
+    margin: 0;
+    z-index: 3;
+    font-weight: 640;
+}
+
+/* Style home-mid-container to take available space */
+#home-mid-container {
+    background-color: None; /* For visibility */
+    width:fit-content; /* Sizes to content, but flex will override if needed */
+    height: 100vh; /* Full height of the viewport */
+    z-index: 4; /* Keeps it layered as needed */
+    animation: slideInFromRight 1.5s ease-in-out;
+}
+
+#ify-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 13vh; /* Large text, match search text size */
+    color: #000000;
+    z-index: 4;
+    font-weight: 640;
+}
+
+#welcome-text {
+    position: absolute;
+    top: 38vh;
+    right: 5.43em;
+
+    font-family: 'Inter', sans-serif;
+    font-size: 4vh; /* Smaller text, adjust as needed */
+    color: hsla(0, 0%, 100%, 0.908);
+    font-weight: 500;
+    z-index: 4;
+}
+
+#home-right-container {
+    flex: auto;
+    display: flex;
+    position: relative;
+    justify-content: flex-end;
+    align-items: center;
+
+    
+    background-color: None;
+    
+}
+
+
+#nav-separation-bar {
+    z-index: 5;
+    display: flex;
+    position: relative;
+    
+    left: 0;
+    height: 40vh;
+    width: 0.7vh;
+    background-color: #000000;
+    margin: 0;
+    padding: 0;
+    margin-right: 3vh;
+}
+
+/* 
+    styles underodered list under nav. 
+    gets rid of default styling
+ */
+nav ul {
+    list-style-type: none;
+    /* don't change this padding or margin. this is too override default UL margin and padding */
+    margin: 0;
+    padding: 0;
+}
+
+/* Styles list items */
+nav ul li {
+    max-width: 15em; /* Limits the width of each list item */
+    word-wrap: break-word; /* Ensures long words wrap */
+    overflow-wrap: break-word; /* Alternative for better wrapping */
+
+    /* adjust this for spacing between links */
+    margin-bottom: 3vh;
+
+    /* adjust this for spacing between overflow wrapped lines */
+    line-height: 6vh;
+}
+
+/* spacing, size, padding of entire nav container */
+nav {
+    display: flex;
+    position: relative;
+    justify-content: flex-start;
+    align-items: center;
+    /* adjust this padding for nav bar from the right */
+    padding: 1em;
+
+    transform: translateY(2vh);
+}
+
+/* styles the link */
+nav li a {
+    font-family: 'Inter', sans-serif;
+    font-size: 4vh; /* Smaller text, adjust as needed */
+    color: #000000;
+    font-weight: 450;
+    text-decoration: none;
+}
+
+nav ul li a.active {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInFromLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInFromRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInFromBottom {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
